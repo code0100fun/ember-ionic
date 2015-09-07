@@ -1,6 +1,8 @@
-<div class="checkbox">
-  {{input type="checkbox" checked=checked}}
-</div>
-<div class="item-content">
-  {{yield}}
-</div>
+<label class="item item-checkbox">
+  <div class="checkbox">
+    {{input type="checkbox" checked=attrs.checked}}
+  </div>
+  <div class="item-content">
+    {{yield}}
+  </div>
+</label>
