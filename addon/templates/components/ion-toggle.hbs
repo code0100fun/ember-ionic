@@ -1,10 +1,12 @@
-<div>
-  <span>{{yield}}</span>
-</div>
-
-<label class="toggle disable-user-behavior">
-  {{input type="checkbox" checked=checked}}
-  <div class="track">
-    <div class="handle"></div>
+<div class="item item-toggle toggle-large">
+  <div>
+    <span>{{yield}}</span>
   </div>
-</label>
+
+  <label class="toggle disable-user-behavior">
+    {{input type="checkbox" checked=attrs.checked}}
+    <div class="track">
+      <div class="handle"></div>
+    </div>
+  </label>
+</div>
