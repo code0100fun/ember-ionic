@@ -1,10 +1,8 @@
 import Ember from 'ember';
+import layout from '../templates/components/ion-header';
 
 export default Ember.GlimmerComponent.extend({
-  tagName: 'ion-header',
-  classNames: ['bar', 'bar-header'],
-  classNameBindings: ['kindClass'],
-
+  layout,
   kindClass: Ember.computed('kind', function() {
     let kind = this.get('kind');
     if (kind) {
