@@ -2,7 +2,7 @@ import Ember from 'ember';
 import layout from '../templates/components/ion-option-button';
 import IonItem from './ion-item';
 
-export default Ember.Component.extend({
+export default Ember.GlimmerComponent.extend({
   layout: layout,
   tagName: '',
   kindClass: Ember.computed('kind', function() {

@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+export default Ember.GlimmerComponent.extend({
   tagName: 'ion-header',
   classNames: ['bar', 'bar-header'],
   classNameBindings: ['kindClass'],

@@ -6,7 +6,7 @@ Ember.LinkView.reopen({
   attributeBindings: ["style"]
 });
 
-export default Ember.Component.extend({
+export default Ember.GlimmerComponent.extend({
   layout: layout,
   tagName: 'ion-item',
   classNames: ['item'],

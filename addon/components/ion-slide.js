@@ -2,7 +2,7 @@ import Ember from 'ember';
 import layout from '../templates/components/ion-slide';
 import IonSlideBox from './ion-slide-box';
 
-export default Ember.Component.extend({
+export default Ember.GlimmerComponent.extend({
   layout: layout,
   tagName: 'ion-slide',
   classNames: ['slider-slide'],
