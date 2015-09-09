@@ -1,33 +1,53 @@
 import Ember from 'ember';
-import layout from '../templates/components/ion-item';
 import IonList from './ion-list';
+import layout from '../templates/components/ion-item';
+import attrClassPrefix from '../helpers/attr-class-prefix';
 
-Ember.LinkView.reopen({
-  attributeBindings: ["style"]
-});
+const PREFIX_ATTRS = [
+  'icon-left',
+  'icon-right',
+  'thumbnail-left',
+  'thumbnail-right',
+  'button-left',
+  'button-right',
+  'avatar',
+  'remove-animate',
+  'complex',
+  'radio',
+  'input',
+  'checkbox',
+  'select',
+  'divider',
+  'toggle',
+  'remove-animate',
+  'right-editable'
+];
 
 export default Ember.GlimmerComponent.extend({
-  layout: layout,
-  tagName: 'ion-item',
-  classNames: ['item'],
-  classNameBindings: [
-    'right-editable:item-right-editable',
-    'complex:item-complex',
-    'remove-animate:item-remove-animate',
-    'toggle:item-toggle',
-    'checkbox:item-checkbox',
-    'radio:item-radio',
-    'select:item-select',
-    'input:item-input',
-    'divider:item-divider',
-    'icon-left:item-icon-left',
-    'icon-right:item-icon-right',
-    'button-left:item-button-left',
-    'button-right:item-button-right',
-    'avatar:item-avatar',
-    'thumbnail-left:item-thumbnail-left',
-    'thumbnail-right:item-thumbnail-right'
-  ],
+  layout,
+
+  section: {
+    link:    { link: true},
+    content: { content: true},
+    options: { options: true}
+  },
+
+  _link: Ember.computed('attrs.type', function() {
+    return this.get('attrs.type') !== 'radio';
+  }),
+
+  _label: Ember.computed('attrs.type', function() {
+    return this.get('attrs.type') === 'radio';
+  }),
+
+  typeClass: Ember.computed('attrs.type', function() {
+    const type = this.get('attrs.type');
+    if (type) {
+      return `item-${this.get('attrs.type')}`;
+    }
+  }),
+
+  styleClasses: attrClassPrefix('item-', PREFIX_ATTRS),
 
   init() {
     this._super(...arguments);
