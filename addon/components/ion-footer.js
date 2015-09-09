@@ -1,9 +1,8 @@
 import Ember from 'ember';
+import layout from '../templates/components/ion-footer';
 
 export default Ember.GlimmerComponent.extend({
-  tagName: 'ion-footer',
-  classNames: ['bar', 'bar-footer'],
-  classNameBindings: ['kindClass'],
+  layout,
 
   kindClass: Ember.computed('kind', function() {
     let kind = this.get('kind');
