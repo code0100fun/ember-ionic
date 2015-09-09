@@ -65,7 +65,7 @@ export default Ember.GlimmerComponent.extend({
 
     slidingLink.addEventListener("transitionend", () => {
       if (!this._open) {
-        this.set('_optionVisiblity', 'invisible');
+        this.set('_optionVisibilityClass', 'invisible');
       }
       this.set('_translateSpeed', 0);
     });
