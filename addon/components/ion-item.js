@@ -72,12 +72,14 @@ export default Ember.GlimmerComponent.extend({
   },
 
   _pan(event) {
+    event.preventDefault();
     Ember.run(() => {
       this._slideItem(event);
     });
   },
 
   _panEnd(event) {
+    event.preventDefault();
     Ember.run(() => {
       this._finishSlidingItem(event);
     });
