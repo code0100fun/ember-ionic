@@ -49,8 +49,12 @@ export default Ember.GlimmerComponent.extend({
 
   _transformOutput: Ember.computed('_translateX', '_translateSpeed', function() {
     let escape = Ember.Handlebars.Utils.escapeExpression;
-    return Ember.String.htmlSafe(`transform: translate(${escape(this.get('_translateX'))}px, 0px);
-            transition: ${escape(this.get('_translateSpeed'))}s transform`);
+    return Ember.String.htmlSafe(`
+      transform: translate(${escape(this.get('_translateX'))}px, 0px);
+      transition: transform ${escape(this.get('_translateSpeed'))}s;
+      -webkit-transform: translate(${escape(this.get('_translateX'))}px, 0px);
+      -webkit-transition: -webkit-transform ${escape(this.get('_translateSpeed'))}s;
+    `);
   }),
 
   didInsertElement() {
