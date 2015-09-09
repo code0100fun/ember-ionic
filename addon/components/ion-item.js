@@ -60,13 +60,8 @@ export default Ember.GlimmerComponent.extend({
 
     this._screenWidth = width;
 
-    hammer.on('pan panend', event => {
-      if (event.type === 'pan') {
-        this._pan(event);
-      } else if (event.type === 'panend') {
-        this._panEnd(event);
-      }
-    });
+    hammer.on('pan', event => this._pan(event) );
+    hammer.on('panend', event => this._panEnd(event) );
 
     slidingLink.addEventListener("transitionend", () => {
       if (!this._open) {
