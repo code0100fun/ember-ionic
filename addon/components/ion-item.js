@@ -78,21 +78,23 @@ export default Ember.GlimmerComponent.extend({
   }),
 
   didInsertElement() {
-    let {width} = this.element.getBoundingClientRect();
-    let hammer = new Hammer(this.element);
-    let slidingLink = this.element.querySelector(".item-content");
+    if (this.attrs['right-editable']) {
+      let { width } = this.element.getBoundingClientRect();
+      let hammer = new Hammer(this.element);
+      let slidingLink = this.element.querySelector(".item-content");
 
-    this._screenWidth = width;
+      this._screenWidth = width;
 
-    hammer.on('pan', event => this._pan(event) );
-    hammer.on('panend', event => this._panEnd(event) );
+      hammer.on('pan', event => this._pan(event) );
+      hammer.on('panend', event => this._panEnd(event) );
 
-    slidingLink.addEventListener("transitionend", () => {
-      if (!this._open) {
-        this.set('_optionVisibilityClass', 'invisible');
-      }
-      this.set('_translateSpeed', 0);
-    });
+      slidingLink.addEventListener("transitionend", () => {
+        if (!this._open) {
+          this.set('_optionVisibilityClass', 'invisible');
+        }
+        this.set('_translateSpeed', 0);
+      });
+    }
   },
 
   _pan(event) {
