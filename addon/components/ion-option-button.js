@@ -4,6 +4,10 @@ import layout from '../templates/components/ion-option-button';
 export default Ember.GlimmerComponent.extend({
   layout: layout,
 
+  click() {
+    this.attrs.click();
+  },
+
   kindClass: Ember.computed('attrs.kind', function() {
     let kind = this.get('attrs.kind');
     let output = 'button';
