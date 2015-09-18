@@ -53,7 +53,7 @@ export default Ember.GlimmerComponent.extend({
     this._super(...arguments);
     this._optionButtons = Ember.A([]);
     let ionList = this.nearestOfType(IonList);
-    ionList.registerItem(this);
+    ionList && ionList.registerItem(this);
   },
 
   _previousX: 0,
